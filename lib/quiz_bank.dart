@@ -1,28 +1,13 @@
-# dicer
+import 'question.dart';
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-List of questions
-
-```
-Question('Some cats are actually allergic to humans', true),
+class QuizBrain {
+  int _questionNumber = 0;
+  final List<Question> _questionBank = [
+    Question('Some cats are actually allergic to humans', true),
     Question('You can lead a cow down stairs but not up stairs.', false),
     Question('Approximately one quarter of human bones are in the feet.', true),
     Question('A slug\'s blood is green.', true),
-    Question('Buzz Aldrin\'s mother\'s maiden name was \"Moon\".', true),
+    Question('Buzz Aldrin\'s mother\'s maiden name was "Moon".', true),
     Question('It is illegal to pee in the Ocean in Portugal.', true),
     Question(
         'No piece of square dry paper can be folded in half more than 7 times.',
@@ -36,12 +21,36 @@ Question('Some cats are actually allergic to humans', true),
     Question(
         'The total surface area of two human lungs is approximately 70 square metres.',
         true),
-    Question('Google was originally called \"Backrub\".', true),
+    Question('Google was originally called "Backrub".', true),
     Question(
         'Chocolate affects a dog\'s heart and nervous system; a few ounces are enough to kill a small dog.',
         true),
     Question(
         'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         true),
+  ];
+  void nextQuestion() {
+    if (_questionNumber < _questionBank.length - 1) {
+      _questionNumber++;
+    }
+  }
 
-```
+  String getQuestionText() {
+    return _questionBank[_questionNumber].questionText;
+  }
+
+  bool getAnswer() {
+    return _questionBank[_questionNumber].answer;
+  }
+
+  bool isFinished() {
+    return _questionNumber == _questionBank.length - 1;
+  }
+
+  void restartQuiz(List list) {
+    print(' restarter');
+    _questionNumber = 0;
+    list.clear();
+    print(_questionNumber);
+  }
+}
