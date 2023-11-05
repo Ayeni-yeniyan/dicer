@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+const labelTextStyle = TextStyle(
+  fontSize: 18,
+  color: Color(0xFF8D8E98),
+);
+
 class GenderColumn extends StatelessWidget {
   GenderColumn({required this.genderText, required this.genderIcon});
   final String genderText;
@@ -15,12 +20,12 @@ class GenderColumn extends StatelessWidget {
           genderIcon,
           size: 80,
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         Text(
           genderText,
-          style: TextStyle(fontSize: 18),
+          style: labelTextStyle,
         )
       ],
     );
