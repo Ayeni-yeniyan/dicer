@@ -1,5 +1,7 @@
 # BMI Calculator 
 
-A new Flutter project.
 
-a two page app for calculating body mass
+
+A two page app for calculating body mass ratio.
+This project focuses on the use of routes and navigating them. 
+/im
